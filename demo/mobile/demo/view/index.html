@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <script src="../dist/js/flexible.js"></script>
+    <title>title</title>
+    <link rel="stylesheet" href="../dist/css/demo.css"/>
+    <script src="../dist/js/makegrid.js"></script>
+    <script>lib.flexible.makeGridMode("750-12");</script>
+    <script src="../dist/js/scrollfix.js"></script>
+    <style>
+        *{
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>头部</h1>
+</header>
+<div class="panel hasHead hasFoot ">
+    内容
+</div>
+<footer class="nav">
+    <div class="grid">
+        <div class="row">
+            <div class="col-4 active">
+                <a href="#">
+                    <i class="icon-home"></i>
+                    <span>首页</span>
+                </a>
+            </div>
+            <div class="col-4">
+                <a href="#"><i class="icon-ucenter"></i>
+                    <span>我的账户</span>
+                </a>
+            </div>
+            <div class="col-4">
+                <a href="#">
+                    <i class="icon-about"></i>
+                    <span>关于我们</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

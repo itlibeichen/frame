@@ -1,0 +1,92 @@
+footer{//footer
+  position: absolute;
+  background: #f8f8f8;
+  bottom: 0;
+  .px4dpr(height,@footer-height);
+  width: 10rem;
+  .px2rem(width,750rem);
+  border-top:2px solid #d3d3d3;
+  left: 50%;
+  margin-left:-5rem;
+  h1{
+    .px4dpr(line-height,@footer-height);
+    .px4dpr(font-size,30px);
+    text-align: center;
+  }
+  .icon-img{
+    .px2rem(width,45rem);
+    .px2rem(height,48rem);
+    .px4dpr(margin-top,10px);
+    .px2rem(margin-left,90rem);
+    background-size: 100%;
+  }
+  .imgs{
+    background: url("../../assest/images/list/foot-aqbz.png") no-repeat;
+    background-size:cover;
+  }
+  .imgs1{
+    background: url("../../assest/images/list/foot-xuanzhong.png") no-repeat;
+  }
+  .col-4{
+    .px4dpr(font-size,24px);
+    a{
+      //img{
+      //  .px2rem(width,42rem);
+      //  .px2rem(height,42rem);
+      //  .px4dpr(margin-top,10px);
+      //  .px2rem(margin-left,95rem);
+      //}
+
+      i,span{
+        display: block;
+        text-align: center;
+        //outline: 1px solid red;
+      }
+      i{
+        .px4dpr(font-size,42px);
+        .px4dpr(margin-top,10px);
+      }
+      span{
+        .px4dpr(margin-top,10px);
+      }
+    }
+    &.active{
+      a,i{
+        color:#359df6;
+      }
+    }
+
+  }
+  .col-3{
+    .px4dpr(font-size,24px);
+    .icon-img{
+      .px2rem(margin-left,60rem);
+    }
+    a{
+      img{
+        .px2rem(width,34rem);
+        .px2rem(height,35rem);
+        .px4dpr(margin-top,10px);
+        .px2rem(margin-left,60rem);
+      }
+      i,span{
+        display: block;
+        text-align: center;
+        //outline: 1px solid red;
+      }
+      i{
+        .px4dpr(font-size,42px);
+        .px4dpr(margin-top,10px);
+      }
+      span{
+        .px4dpr(margin-top,10px);
+      }
+    }
+    &.active{
+      a,i{
+        color:#359df6;
+      }
+    }
+
+  }
+}

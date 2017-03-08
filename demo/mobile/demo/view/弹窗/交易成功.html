@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <script src="../../dist/js/flexible.js"></script>
+    <title>title</title>
+    <link rel="stylesheet" href="../../dist/css/demo.css"/>
+    <script src="../../dist/js/makegrid.js"></script>
+    <script>lib.flexible.makeGridMode("750-12");</script>
+    <script src="../../dist/js/scrollfix.js"></script>
+</head>
+<body>
+<header>
+    <h1>天天赚</h1>
+    <a href="#" class="back"><i class="icon-arrow-right"></i></a>
+</header>
+<div class="panel hasHead hasFoot">
+    <div class="view">
+        <div class="btn-wrap">
+            <div class="btn">下一步</div>
+        </div>
+    </div>
+    <!--弹窗-->
+    <script type="text/template" id="bb">
+        <div class="dialog dialog2">
+
+            <div class="dialog-content-l">
+             内容内容内容
+
+            </div>
+            <div class="dialog-btns">
+                <div class="btn">我知道了</div>
+            </div>
+        </div>
+    </script>
+
+</div>
+
+<footer class="nav">
+    <div class="grid">
+        <div class="row">
+            <div class="col-4 active">
+                <a href="#">
+                    <i class="icon-home"></i>
+                    <span>首页</span>
+                </a>
+            </div>
+            <div class="col-4">
+                <a href="#"><i class="icon-ucenter"></i>
+                    <span>我的账户</span>
+                </a>
+            </div>
+            <div class="col-4">
+                <a href="#">
+                    <i class="icon-about"></i>
+                    <span>关于我们</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="../../dist/js/demo.js"></script>
+<script src="../../dist/js/layer.mobile-v1.7/layer/layer.js"></script>
+<script>
+    $(function(){
+        $(".btn").tap(function(){
+            var index = layer.open({
+                content: $("#bb").html(),
+                success: function(ele){
+                    $(ele).find(".close-btn").tap(function(){
+                        layer.close(index);
+                    });
+                    $(ele).find(".btn").tap(function(){
+                        layer.close(index);
+                    });
+                }
+            });
+        });
+    })
+</script>
+</body>
+</html>

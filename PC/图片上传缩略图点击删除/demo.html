@@ -1,0 +1,66 @@
+﻿<html>
+<head>
+    <title>uploadPreview演示</title>
+
+    <style>
+        .UpSty1{
+
+            width: 0;
+            height: 0;
+            /*position: absolute;*/
+            /*需要隐藏的文件域的样式*/
+        }
+
+        .UpSty2 {
+            /*上传按钮的样式*/
+            width: 40px;
+            height: 40px;
+        }
+
+        .imgShowUp0,.imgShowUp1,.imgShowUp2 {
+            /*写缩略图的样式*/
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+        .imgShowUp{
+            /*预留默认的上传图片缩略图的样式*/
+        }
+
+    </style>
+    <script src="jquery-1.7.1.js"></script>
+    <script src="uploadPreview.js" type="text/javascript"></script>
+    <script>
+        window.onload = function () {
+            for(var i=0;i<=2;i++){
+                new uploadPreview({UpBtn: "InputUp"+i, DivShow: "Up"+i, ImgShow: "imgShowUp"+i,num:3});
+            }
+//      每多添加一组上传的标签，此处i的最大值需要同步修改，从0开始，3组就是2
+//      num:可选参数，用来限制最大可以上传的张数，如果不传的话，默认限制为5张，现在写的是上传限制3张
+        }
+    </script>
+</head>
+<body>
+<div id="Up0">
+    <!--<img class="imgShowUp">-->
+    <input type="file" class="UpSty1" id="InputUp0" name="ImagePathUp0">
+</div>
+<img src="jia.png" class="UpSty2" id="BtnInputUp0">
+
+
+<div id="Up1">
+    <!--<img class="imgShowUp">-->
+    <input type="file" class="UpSty1" id="InputUp1" name="ImagePathUp1">
+</div>
+<img src="jia.png" class="UpSty2" id="BtnInputUp1">
+
+
+<div id="Up2">
+    <!--<img class="imgShowUp">-->
+    <input type="file" class="UpSty1" id="InputUp2" name="ImagePathUp2">
+</div>
+<img src="jia.png" class="UpSty2" id="BtnInputUp2">
+
+
+</body>
+</html>

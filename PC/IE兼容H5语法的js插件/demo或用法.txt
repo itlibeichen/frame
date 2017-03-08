@@ -1,0 +1,15 @@
+请上传者进行修改本文档的内容
+
+说明
+越来越多的站点开始使用 HTML5 标签。但情况是还有很多人在使用IE6，IE7，IE8。为了让所有网站浏览者都能正常的访问网站，解决方案有下面两个：
+
+1.为网站创建多套模板，通过程序对User-Agent的判断给不同的浏览器用户显示不同的页面，比如优酷网就是采用的这种模式。
+
+2.使用Javascript来使不支持HTML5的浏览器支持HTML标签。很多网站采用的这种方式。
+针对IE浏览器比较好的解决方案是html5shiv。html5shiv主要解决HTML5提出的新的元素不被IE6-8识别，这些新元素不能作为父节点包裹子元素，并且不能应用CSS样式。让CSS 样式应用在未知元素上只需执行 document.createElement(elementName) 即可实现。html5shiv就是根据这个原理创建的。
+html5shiv的使用非常的简单，考虑到IE9是支持html5的，所以只需要在页面head中添加如下代码即可：
+
+<!--[ifltIE9]>
+<script
+type="text/javascript" src="scripts/html5shiv.js"></script>
+<![endif]-->

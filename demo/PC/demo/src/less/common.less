@@ -1,0 +1,52 @@
+@charset "utf-8";
+html {
+  font-size: 12px;
+  font-family: 微软雅黑,宋体,Arial,Helvetica;
+  background: #ffffff;
+}
+@width:1000px;
+body{
+  min-width: @width;
+}
+/*文本超出部分显示省略号*/
+.ellipsis{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+/*禁用选中*/
+.no-select{-moz-user-select: none;-webkit-user-select: none;user-select: none;}
+/*清除浮动*/
+.clear:before, .clear:after {display: table;line-height: 0;content: ""; }
+.clear:after {clear: both; }
+img{ border:none;}
+ul,ol,li{list-style:none;}
+h1,h2,h3,h4,h5,h6{ font-weight:normal;}
+select,input,img,select{ vertical-align:middle;}
+input,button,select,textarea{outline:none}
+i{ font-style:normal;}
+table {border-collapse:collapse;border-spacing:0;}
+.fl{ float:left;}
+.fr{ float:right;}
+.pr{ position:relative;}
+.pa{ position:absolute;}
+.w100{width:100%;}
+.div-m{ width:@width; margin:0 auto; }
+.b{ font-weight:bold;}
+a{text-underline: none;}
+.text-align(@position){
+  text-align:@position;
+}
+.border-radius (@radius) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+.boder(@line,@width,@color){
+  border:@width @line @color;
+}
+.pad(@top,@right,@bottom,@left){
+  padding:@top @right @bottom @left;
+}
+.font-size(@size){
+  font-size: @size;
+}
+.marg(@top,@right,@bottom,@left){
+  margin:@top @right @bottom @left;
+}

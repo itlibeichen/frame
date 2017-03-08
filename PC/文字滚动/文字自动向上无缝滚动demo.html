@@ -1,0 +1,110 @@
+<html>
+<head>
+    <style type="text/css">
+        #outer1,#outer2 {
+            position: relative;
+            height: 480px;
+            overflow: hidden;
+        }
+        #inner1,#inner2{
+            position: absolute;
+            left: 0;
+            font-size: 28px;
+            /*overflow: hidden;*/
+            /*注意，内层元素不要增加这个样式，不然会出错*/
+        }
+    </style>
+</head>
+<body>
+                <div id="outer1">
+                    <ul id="inner1" style="top: 0;width:238px;">
+                        <li class="">稳稳盈2016年第28期</li>
+                        <li>稳稳盈2016年第28期</li>
+                        <li>稳稳盈2016年第28期稳稳盈2016年第28期稳稳盈2016年第28期稳稳盈2016年第28期</li>
+                        <li>稳稳盈2016年第28期</li>
+                        <li>稳稳盈2016年第28期</li>
+                        <li>稳稳盈2016年第28期</li>
+                        <li>稳稳盈2016年第28期</li>
+                        <li>稳稳盈2016年第28期</li>
+                        <li>稳稳盈2016年第28期</li>
+                        <li>稳稳盈2016年第28期</li>
+                        <li>稳稳盈2016年第28期</li>
+                        <li>稳稳盈2016年第28期</li>
+                        <li>稳稳盈2016年第28期</li>
+                        <li>稳稳盈2016年第28期</li>
+                        <li>稳稳盈2016年第28期</li>
+                        <li>123稳稳盈2016年第28期</li>
+                    </ul>
+                </div>
+		<div id="outer2">
+                    <ul id="inner2" style="top: 0;width:238px;">
+                        <li class="bor-n">稳稳盈2016年第28期</li>
+                        <li>稳稳盈2016年第28期</li>
+                        <li>稳稳盈2016年第28期</li>
+
+                    </ul>
+                </div>
+
+</body>
+</html>
+<!--需要引入jquery，现在的方式是扩展到了jquery的原型链上面一个MoveUp方法-->
+
+<script src="./jquery.js"></script>
+
+
+<script type="text/javascript">
+//以下是实现的源码，方式是扩展到了jquery的原型链上面一个MoveUp方法，每次使用传入2个参数，第一个是outer的ID，第二个是inner的ID
+//这里的内容不需要每次都写到页面内，只需要写一次，将MoveUp方法添加到eshoue.js，或者jquery的原型链上即可
+$.prototype.MoveUp = function MoveUp(arg1,arg2){
+        var outer = document.getElementById(arg1);//外层div的id，根据实际布局修改。
+        var inner = document.getElementById(arg2);//内层div的id，根据实际布局修改。
+        var val = inner.innerHTML;//->首先获取inner中的内容
+
+    var outerHeight = outer.offsetHeight;
+    var innerHeight = inner.offsetHeight;
+
+//console.log(outerHeight)
+    //console.log(innerHeight)
+
+    if (outerHeight < innerHeight) {
+
+        var myInner = $(inner).clone().html();//克隆一个inner
+        $(inner).append(myInner);//在inner下面插入克隆的
+//console.log(myInner)
+        var moveUp = function () {
+
+            innerHeight=innerHeight * -1;
+            console.log(innerHeight)
+            if ( parseInt(inner.style.top) == innerHeight ) {
+                inner.style.top = 0;
+            }
+
+            var innerTop = parseInt(inner.style.top);
+            inner.style.height -= innerTop + "px";
+            innerTop -= 1;//每100毫秒向上滚动1px，滚动速度。-&#45;&#45;可修改
+            inner.style.top = innerTop + "px";
+        };
+            var timer1 = window.setInterval(moveUp, 50);//每50毫秒向上滚动，可以修改。
+            //鼠标在上面自动停止，鼠标移出，自动继续。
+            outer.onmouseover = function () {
+                window.clearInterval(timer1);
+                outer.onmouseout = function () {
+                    window.clearInterval(timer1); //不是必须的，但是建议加上，防止定时器积累发生。
+                    timer1 = window.setInterval(moveUp, 50);//每50毫秒向上滚动，可以修改。
+                };
+            }
+        }
+        return this;
+    }
+
+</script>
+
+
+<script type="text/javascript">
+//这里是使用的方法，对应上面的内容，有2个调用这个向上滚动效果的outer。
+$(function(){
+    $.fn.MoveUp("outer1","inner1");
+    $.fn.MoveUp("outer2","inner2");
+});
+
+</script>

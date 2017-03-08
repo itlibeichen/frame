@@ -1,0 +1,87 @@
+less简单操作手册
+
+0.less中的2种注释的写法
+
+//只在less中注释，不会编译到css文件中
+/**/编译后会成为css中的注释内容
+故如只需在less中显示的注释内容，不想再css文件中出现的内容请使用//来进行注释
+
+1.变量
+
+@border:solid 1px red;
+
+@声明，注意结尾的分号;
+
+2.混合（mixin）
+
+.test{
+	border：@border;
+}
+.test2(@test_h){
+	width：100px;
+	height:@test_h;
+}
+
+.cc{
+//在cc这个class中调用这个test2
+	.test2(50px);
+//如果.test2();不传参数的值，会报错，因为没有默认值，故，看下面带默认值的方式
+}
+
+.test3(@test_h:80px){
+	width：100px;
+	height:@test_h;
+	.border;
+//直接饮用上面定义好的border样式，注意没有参数的时候，后面不要带括号
+}
+
+
+.cc2{
+	.test2();
+}
+
+3.变量作用域，以及导入库文件
+less中的变量定义是有作用域的，使用时请注意。
+
+故，可以将所有的变量都写到一个ku.less文件中，用@important "ku";
+//默认会认为是.less文件，可以不加.less后缀
+@important (less) "a.css";
+//如果不加(less) 的话，那么会在生成的css文件中@important "a.css",不会对a.css文件中的内容进行编译
+
+4.less中的运算（+—*/）
+任何数字，颜色，变量都可以参与运算，运算应该被包裹在括号中
+只要运算的两个值或多个值中有一个值有单位，那么就不需要再写单位
+@width_test:(280px -20)*2;
+color：#ccc -10;
+//颜色的运算比较少
+
+5.嵌套
+.test3(@test_h:80px){
+	width：100px;
+	height:@test_h;
+	.border;
+//直接饮用上面定义好的border样式，注意没有参数的时候，后面不要带括号
+}
+这个就属于嵌套了，注意减少嵌套层数，来进行优化。
+
+6.&  &_   @arguments 的使用
+&		代表他的上一层，在嵌套中进行使用
+&_		代表这里面的内容每次都带着
+@arguments 	代表所用的参数
+
+用法举例：
+a{color:blue;
+	&:hover{
+		color:green;
+	}
+}
+
+
+
+
+
+
+
+
+
+

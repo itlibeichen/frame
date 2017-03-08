@@ -1,0 +1,75 @@
+header{//header
+  position: absolute;
+  top:0;
+  width: 10rem;
+  left: 50%;
+  margin-left:-5rem;
+  .px2rem(width,750rem);
+  .px4dpr(height,@header-height);
+  background: #ffffff;
+  text-align: center;
+  img{
+    .px4dpr(height,35px);
+    .px4dpr(width,171px);
+    .px4dpr(margin-top,23px);
+    display: inline-block;
+    //outline: 1px solid red;
+    .px4dpr(line-height,@header-height);
+  }
+  a.back{
+    display: inline-block;
+    position: absolute;
+    .px4dpr(height,44px);
+    .px4dpr(width,21px);
+    .px4dpr(top,21px);
+    .px4dpr(left,10px);
+    color:#359df6;
+    text-align: left;
+    .px4dpr(font-size,44px);
+  }
+  a.r-btn{
+    display: inline-block;
+    position: absolute;
+    .px4dpr(height,54px);
+    .px4dpr(width,54px);
+   // outline: 1px solid red;
+    .px4dpr(top,17px);
+    .px4dpr(right,21px);
+    .px4dpr(font-size,54px);
+    color:#379ef6;
+  }
+  .loginbar{
+    position: absolute;
+    //outline: 1px solid red;
+    .px4dpr(top,16px);
+    .px4dpr(right,21px);
+    .px4dpr(height,54px);
+    .px4dpr(width,180px);
+    border:1px solid #d3d3d3;
+    .px4dpr(border-radius,10px);
+   a{
+     display: inline-block;
+     text-align: center;
+     .px4dpr(line-height,30px);
+     .px4dpr(width,80px);
+     .px4dpr(height,30px);
+     .px4dpr(margin-top,12px);
+     color:#359df6;
+     //outline: 1px solid red;
+     &.btn1{
+       border-right:1px solid #d3d3d3;
+     }
+   }
+  }
+  h1{
+    margin: 0;
+    .px4dpr(line-height,@header-height);
+    .px4dpr(font-size,36px);
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #ffffff;
+    height: 100%;
+    color:#333333;
+  }
+}
